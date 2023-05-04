@@ -10,13 +10,53 @@ export class ApiNmdb {
     this.country = '';
     this.page = 1;
     this.region = 'USA';
-    //Specify a ISO 3166-1 code to filter release dates. Must be uppercase.
+    // country or region ???
   }
 
   async fetchFilmList() {
     const url = `${this.url}search/movie?api_key=${this.key}&query=${this.film}&primary_release_year=${this.year}&page=${this.page}&region=${this.region}`;
     let { data } = await axios.get(url);
     return data.results;
+  }
+
+  get getFilm() {
+    return this.film;
+  }
+
+  set setFilm(title) {
+    this.film = title;
+  }
+
+  get getYear() {
+    return this.year;
+  }
+
+  set setYear(year) {
+    this.year = year;
+  }
+
+  get getNumeOfPage() {
+    return this.page;
+  }
+
+  set setNumOfPage(numpage) {
+    this.page = numpage;
+  }
+
+  get getGanre() {
+    return this.ganre;
+  }
+
+  set setGanre(ganre) {
+    this.ganre = ganre;
+  }
+
+  get getRegion() {
+    return this.region;
+  }
+
+  set setRegion(region) {
+    this.region = region;
   }
 }
 // export class ApiPixabay {
